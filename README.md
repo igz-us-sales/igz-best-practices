@@ -45,7 +45,7 @@ root
 │   └── ...
 │   └── project.yaml                                 # Generated K8s spec for project
 │   └── workflow.py                                  # KF pipeline (generated if using .ipynb)
-└── pipeline                                         # Automatically created by MLRun
+└── pipeline                                         # Directory for run artifacts - Automatically created by MLRun
     ├── 392b2858-6c34-49cf-a646-5f711120d38a         # Generated Run ID
     │   └── run_artifact_data.csv
     │   └── ...
