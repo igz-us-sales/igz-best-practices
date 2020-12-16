@@ -4,8 +4,7 @@
 - [MLRun vs Nuclio](#MLRun-vs-Nuclio)
 - [Project Organization](#Project-Organization)
 - [Resource Allocation](#Resource-Allocation)
-- [Troubleshooting](#Troubleshooting)
-- [Monitoring](#Monitoring)
+- [Troubleshooting and Monitoring](#Troubleshooting-and-Monitoring)
 
 ## MLRun vs Nuclio
 - Nuclio 
@@ -71,13 +70,38 @@ Whether something has gone wrong, or you just want to check in on your function,
 ### Troubleshooting Checklist
 1. Find the logs for your function via UI or CLI
 2. Check to see your error is covered in [Common Errors](docs/CommonErrors.md).
+3. ...
 
 ### UI Tools
-- Pipelines
-- MLRun
-- Nuclio
-- Grafana
+#### Pipelines
+- Located on left-hand side-bar. Titled `Pipelines`.
+
+#### MLRun
+- Located in Services page. Titled `mlrun`.
+
+#### Nuclio
+- Located on left-hand side-bar. Titled `Projects`.
+
+#### Grafana
+- Located under `Application` tab on `Clusters` page located on left-hand side-bar. Titled `Status Dashboard`.
 
 ### Command Line Tools
-- kubectl
-- MLRun CLI
+#### kubectl
+Common commands
+- `kubectl get pods`
+- `kubectl describe pod <POD>`
+- `kubectl delete pod <POD>`
+#### MLRun CLI
+If running locally:
+```
+pip install mlrun==0.5.4 #or whatever version you're running
+export V3IO_USERNAME=<V3IO_USERNAME>
+export V3IO_ACCESS_KEY=<V3IO_ACCESS_KEY>
+```
+
+Locally or on platform:
+```
+mlrun clean job <UID> -f --api https://mlrun-api.default-tenant.app.my-cluster.iguazio-cd2.com
+Ex:
+mlrun clean job 063465af3fa54ea2a144bdcf38b22595 -f --api https://mlrun-api.default-tenant.app.my-cluster.iguazio-cd2.com
+```
