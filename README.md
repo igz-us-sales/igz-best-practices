@@ -34,6 +34,7 @@
 
 ## Project Organization
 ### General Pipeline Directory Structure
+This is the general directory structure for a Kubeflow Pipeline project. This structure makes some assumptions on how things are set up in code, particularly the `artifact_path`. This file structure can be seen in action within the [Project Templates](#Project-Templates).
 ```
 root
 ├── README.md
@@ -66,12 +67,17 @@ fn.with_limits(cpu="250m", mem="64Mi", gpus="1", gpu_type='nvidia.com/gpu')
 
 ## Troubleshooting and Monitoring
 Whether something has gone wrong, or you just want to check in on your function, many of the same tools are used.
-### UI
+
+### Troubleshooting Checklist
+1. Find the logs for your function via UI or CLI
+2. Check to see your error is covered in [Common Errors](docs/CommonErrors.md).
+
+### UI Tools
 - Pipelines
 - MLRun
 - Nuclio
 - Grafana
 
-### Command Line
+### Command Line Tools
 - kubectl
 - MLRun CLI
