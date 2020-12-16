@@ -25,22 +25,28 @@
         - Function marketplace
         - Git repo
         - MLRun DB (can also get runs, models, graphs, metrics, etc.)
+- MLRun vs Nuclio       
+    - While `MLRun` and `Nuclio` are quite interconnected, it does not mean they are interchangable
+    - For example, a `MLRun` function can have a `Nuclio` runtime
+        - This means that a `Nuclio` serverless function is being deployed to the cluster via `MLRun`
+        - The same `MLRun` function could also deploy a `Job` or `Dask` runtime instead of a `Nuclio` runtime
+    - `MLRun` is the orchestrator whereas `Nuclio` is the runtime (or type of function)
 
 ## Project Organization
 ### General Pipeline Directory Structure
 ```
 root
 ├── README.md
-├── Pipeline.ipynb/py
-├── config.yaml
-├── project
+├── Pipeline.ipynb/py                                # Main pipeline notebook/script
+├── config.yaml                                      # Optional config file
+├── project                                          # Directory for components and KF files
 │   └── PipelineComponent1.ipynb/py
 │   └── PipelineComponent2.ipynb/py
 │   └── ...
-│   └── project.yaml
-│   └── workflow.py
-└── pipeline
-    ├── 392b2858-6c34-49cf-a646-5f711120d38a
+│   └── project.yaml                                 # Generated K8s spec for project
+│   └── workflow.py                                  # KF pipeline (generated if using .ipynb)
+└── pipeline                                         # Automatically created by MLRun
+    ├── 392b2858-6c34-49cf-a646-5f711120d38a         # Generated Run ID
     │   └── run_artifact_data.csv
     │   └── ...
     │   └── run_artifact_model.pkl
@@ -52,21 +58,20 @@ Use the following templates as a starting point for your project. They showcase 
 - [Remote Deployment](https://github.com/igz-us-sales/igz-remote-deployment) - From Local Machine
 
 ## Resource Allocation
+With a MLRun function (regardless of runtime: `job`, `mpijob`, `dask`, `nuclio`, etc.), use the following to allocate resources to the function:
 ```
 fn.with_requests(cpu="125m", mem="32Mi")
 fn.with_limits(cpu="250m", mem="64Mi", gpus="1", gpu_type='nvidia.com/gpu')
 ```
 
-## Troubleshooting
-- MLRun UI
-- Nuclio UI
-- kubectl
+## Troubleshooting and Monitoring
+Whether something has gone wrong, or you just want to check in on your function, many of the same tools are used.
+### UI
+- Pipelines
+- MLRun
+- Nuclio
+- Grafana
 
-## Monitoring
 ### Command Line
 - kubectl
 - MLRun CLI
-
-### UI
-- MLRun UI
-- Nuclio UI
