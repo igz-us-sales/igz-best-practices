@@ -58,7 +58,11 @@ Use the following templates as a starting point for your project. They showcase 
 - [Remote Deployment](https://github.com/igz-us-sales/igz-remote-deployment) - From Local Machine
 
 ## Resource Allocation
-With a MLRun function (regardless of runtime: `job`, `mpijob`, `dask`, `nuclio`, etc.), use the following to allocate resources to the function:
+With a MLRun function (regardless of runtime: `job`, `mpijob`, `dask`, `nuclio`, etc.), you can allocate resources to the function.
+- A `request` is the resources that the job is guaranteed and will not be below. Essentially the lower bound.
+- A `limit` is the upper bound of the resources for the job and cannot go above.
+
+Assign resources with the following syntax:
 ```
 fn.with_requests(cpu="125m", mem="32Mi")
 fn.with_limits(cpu="250m", mem="64Mi", gpus="1", gpu_type='nvidia.com/gpu')
