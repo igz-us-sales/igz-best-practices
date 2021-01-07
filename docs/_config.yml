@@ -1,0 +1,6 @@
+theme: jekyll-theme-cayman
+markdown: kramdown
+title: Iguazio Best Practices
+
+plugins:
+  - jekyll-relative-links
