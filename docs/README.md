@@ -2,12 +2,6 @@
 * TOC
 {:toc}
 
-## Table of Contents
-- [MLRun vs Nuclio](#MLRun-vs-Nuclio)
-- [Project Organization](#Project-Organization)
-- [Resource Allocation](#Resource-Allocation)
-- [Troubleshooting and Monitoring](#Troubleshooting-and-Monitoring)
-
 ## MLRun vs Nuclio
 ### Nuclio 
 - Serverless Functions framework
