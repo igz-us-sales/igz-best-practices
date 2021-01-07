@@ -1,4 +1,4 @@
-## Table of Contents
+## Iguazio Best Practices
 * TOC
 {:toc}
 
