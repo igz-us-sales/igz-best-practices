@@ -6,6 +6,7 @@
 ### Nuclio 
 - Serverless Functions framework
 - Intended to provide Real-Time Live Endpoints that can easily connect through Triggers to different Sources (Like Kafka, Streams, HTTP, Cron, ...)
+
 ### MLRun
 - Orchestrator for workloads, enabling you to take code (and some definitions if needed) and run it on top of the cluster (even by just pointing to the MLRun API on the cluster from your laptop)
 - Variety of runtimes 
@@ -20,6 +21,7 @@
     - Function marketplace
     - Git repo
     - MLRun DB (can also get runs, models, graphs, metrics, etc.)
+
 ### MLRun vs Nuclio       
 - While `MLRun` and `Nuclio` are quite interconnected, it does not mean they are interchangable
 - For example, a `MLRun` function can have a `Nuclio` runtime
