@@ -52,7 +52,7 @@ root
 ```
 ### Project Templates
 Use the following templates as a starting point for your project. They showcase the current best practices for structuring a project in Iguazio.
-- Platform Deployment - From Iguazio Platform
+- [Platform Deployment](https://github.com/igz-us-sales/igz-platform-deployment) - From Iguazio Platform
 - [Remote Deployment](https://github.com/igz-us-sales/igz-remote-deployment) - From Local Machine
 
 ## Resource Allocation
